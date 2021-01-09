@@ -43,6 +43,6 @@ sent = 0
 
 while True:
     sockt.sendto(bytes,(ip,port))
-    #sockt.send(pers_msg)
+    #sockt.send(str(pers_msg).encode)
     sent +=1
     print(BOLD+"number of requests sent:",FAIL+str(sent)+ENDC+ENDC)
