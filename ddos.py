@@ -37,7 +37,7 @@ pers_msg = input("Enter your personnal message or signatur if you wish: ")
 os.system("clear")
 os.system("figlet 'DDos Attack starting ...'")
 
-print(BOLD+OKBLUE+"preparing the attacl of the adress IP:",ip+ENDC+ENDC)
+print(BOLD+OKBLUE+"preparing the attack on the adress IP:",ip+ENDC+ENDC)
 time.sleep(5)
 sent = 0
 
