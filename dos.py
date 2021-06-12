@@ -6,6 +6,14 @@ import time
 from datetime import datetime
 from IPy import IP
 
+#string colors
+OKBLUE = '\033[94m'
+ENDC = '\033[0m'
+BOLD = '\033[1m'
+WARNING = '\033[93m'
+FAIL = '\033[91m'
+
+
 def checkIP(ip):
     try:
         IP(ip)
@@ -13,13 +21,6 @@ def checkIP(ip):
     except ValueError :
         return socket.gethostbyname(ip)    
 
-
-#string colors
-OKBLUE = '\033[94m'
-ENDC = '\033[0m'
-BOLD = '\033[1m'
-WARNING = '\033[93m'
-FAIL = '\033[91m'
 
 #initialise the socket to use IPv4 & UDP protocole
 sockt = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
