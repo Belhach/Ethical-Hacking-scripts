@@ -8,10 +8,10 @@ BOLD = '\033[1m'
 WARNING = '\033[93m'
 FAIL = '\033[91m'
 
-def scan(target):
+def scan(target,port_num):
     converted_ip = checkIP(target)
     print("\n"+ "[scanning target] "+ BOLD+OKBLUE+ str(target)+ENDC+ENDC)
-    for port in range(20,30):
+    for port in range(1,port_num):
         scan_port(converted_ip,port)
 
 def checkIP(ip):
@@ -38,9 +38,10 @@ def scan_port(ipadress, port):
         print("[-] Port "+ str(port) +" is"+FAIL+" closed"+ENDC)
 
 targets = input("[+] Enter Target(s) to scan ( for mutiples targets, split with ',' ): ")
- 
+ports_num = input("[+] Enter the number of ports to be scanned: ") 
+
 if ',' in targets:
     for ipadress in targets.split(','):
-        scan(ipadress)
+        scan(ipadress.strip(' '),int(ports_num))
 else:
-    scan(targets)
+    scan(targets,int(ports_num))
