@@ -38,10 +38,10 @@ def scan_port(ipadress, port):
         print("[-] Port "+ str(port) +" is"+FAIL+" closed"+ENDC)
 
 targets = input("[+] Enter Target(s) to scan ( for mutiples targets, split with ',' ): ")
-ports_num = input("[+] Enter the number of ports to be scanned: ") 
+ports_num = int(input("[+] Enter the number of ports to be scanned: "))
 
 if ',' in targets:
     for ipadress in targets.split(','):
-        scan(ipadress.strip(' '),int(ports_num))
+        scan(ipadress.strip(' '),ports_num)
 else:
-    scan(targets,int(ports_num))
+    scan(targets,ports_num)
